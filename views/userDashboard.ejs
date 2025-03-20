@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar {
+            background-color: #3012da;
+            padding: 15px 20px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .navbar h2 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar a.logout {
+            background-color: #dc3545;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar a.logout:hover {
+            background-color: #c82333;
+        }
+
+        nav {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #28a745;
+            padding: 10px 15px;
+            border: 2px solid #28a745;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #28a745;
+            color: white;
+        }
+
+        h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #28a745;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .navbar h2 {
+                margin-bottom: 10px;
+            }
+
+            nav {
+                flex-direction: column;
+            }
+
+            nav a {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <h2>Welcome, <%= user.name %> (User)</h2>
+            <a href="/logout" class="logout">Logout</a>
+        </div>
+
+        <nav>
+            <a href="/book-tickets">Book Tickets</a>
+            <a href="/view-bookings">View Bookings</a>
+            <a href="/profile">Profile</a>
+        </nav>
+
+        <h3>User Dashboard</h3>
+        <p>Book tickets, view bookings, and manage your profile.</p>
+    </div>
+</body>
+</html>

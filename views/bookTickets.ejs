@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Tickets</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar {
+            background-color: #3012da;
+            padding: 15px 20px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .navbar h2 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar a.logout {
+            background-color: #dc3545;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar a.logout:hover {
+            background-color: #c82333;
+        }
+
+        h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #28a745;
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        input {
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .back-btn {
+            display: block;
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <h2>Welcome, <%= user.name %> (User)</h2>
+            <a href="/logout" class="logout">Logout</a>
+        </div>
+
+        <h3>Book a Ticket</h3>
+        <form action="/book-tickets" method="POST">
+            <input type="hidden" name="user_id" value="<%= user.id %>">
+
+            <label for="bus_id">Bus ID:</label>
+            <input type="number" name="bus_id" required>
+
+            <label for="date">Date:</label>
+            <input type="date" name="date" required>
+
+            <label for="seats">Seats:</label>
+            <input type="number" name="seats" required>
+
+            <button type="submit">Book Ticket</button>
+        </form>
+
+        <a href="/user-dashboard" class="back-btn">Back to Dashboard</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Bookings</title>
+</head>
+<body>
+    <h2>Your Bookings</h2>
+    <% if (bookings.length > 0) { %>
+        <ul>
+            <% bookings.forEach(booking => { %>
+                <li>Bus ID: <%= booking.bus_id %>, Date: <%= booking.date %>, Seats: <%= booking.seats %></li>
+            <% }); %>
+        </ul>
+    <% } else { %>
+        <p>No bookings found.</p>
+    <% } %>
+    <a href="/user-dashboard">Back to Dashboard</a>
+</body>
+</html>
